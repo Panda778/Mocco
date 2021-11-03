@@ -49,7 +49,8 @@ const UserPanel = () => {
                                 }}>
                                     <Button sx={{outline: 3, paddingLeft: 3}}>Active</Button>
                                     <Box sx={{display: "flex", alignItems: 'center'}}>
-                                        <Avatar width={80} height={100} sx={{marginRight:4}} src={'../img/Rectangle18.svg'} alt=""/>
+                                        <Avatar width={80} height={100} sx={{marginRight: 4}}
+                                                src={'../img/Rectangle18.svg'} alt=""/>
                                         <p>{user.name}</p>
                                     </Box>
                                     <Box>{user.email}</Box>
@@ -60,9 +61,8 @@ const UserPanel = () => {
                         })}
 
 
-
-                        <Box sx={{display:'flex',justifyContent:'center',marginTop:5,paddingBottom:5}}>
-                            <Button variant={'contained'} sx={{borderRadius:4,width:'15%'}} >View more</Button>
+                        <Box sx={{display: 'flex', justifyContent: 'center', marginTop: 5, paddingBottom: 5}}>
+                            <Button variant={'contained'} sx={{borderRadius: 4, width: '15%'}}>View more</Button>
                         </Box>
                     </Box>
                 </Paper>
