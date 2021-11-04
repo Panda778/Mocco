@@ -49,7 +49,6 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
-  backgroundColor: "white",
   color: "black",
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
@@ -133,34 +132,48 @@ export default function Layout({ children }) {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : defaultTheme}>
-      <Box sx={{display:'flex'}}>
+      <Box sx={{ display: "flex" }}>
         <CssBaseline />
         {/*elevation - тень гетушт к
 
              кшокпщггт пкгтттпгикшшпщшуох*/}
-        <AppBar elevation={1} position="fixed" open={open}>
-          <Toolbar  sx={{display: 'flex' , justifyContent: 'space-between'}}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{ ...(open && { display: "none" }) }}
-            >
-              <MenuIcon />
-            </IconButton>
-            {!open && (
-              <Typography
-                sx={{ textAlign: "center" }}
-                variant="h6"
-                noWrap
-                component="div"
+        <AppBar
+          color={isDarkTheme ? "primary" : "default"}
+          elevation={1}
+          position="fixed"
+          open={open}
+        >
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{ ...(open && { display: "none" }) }}
               >
-                Mocco
-              </Typography>
-            )}
+                <MenuIcon />
+              </IconButton>
+              {!open && (
+                <Typography
+                
+                  sx={{ textAlign: "center" }}
+                  variant="h6"
+                  noWrap
+                  component="div"
+                >
+                  Mocco
+                </Typography>
+              )}
+            </Box>
 
-   
+            <Box
+              sx={{
+                display: "flex",
+                width: "30%",
+                justifyContent: "space-between",
+              }}
+            >
               <Search>
                 <SearchIconWrapper>
                   <SearchIcon />
@@ -177,7 +190,7 @@ export default function Layout({ children }) {
               >
                 {!isDarkTheme ? <WbSunnyIcon /> : <DarkModeOutlinedIcon />}
               </Button>
-            
+            </Box>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -205,24 +218,27 @@ export default function Layout({ children }) {
               ) : (
                 <ChevronRightIcon />
               )}
-                      </IconButton>
-                      
+            </IconButton>
           </DrawerHeader>
           <Divider />
           <List>
+            <Link to={'/'}>
             <ListItem button>
               <ListItemIcon>
                 <HomeOutlinedIcon />
               </ListItemIcon>
               <ListItemText>Overview</ListItemText>
             </ListItem>
+           </Link>
 
+            <Link to={'/user'}>
             <ListItem button>
               <ListItemIcon>
                 <PersonOutlinedIcon />
               </ListItemIcon>
               <ListItemText>Users</ListItemText>
             </ListItem>
+           </Link>
           </List>
         </Drawer>
         <Main open={open}>

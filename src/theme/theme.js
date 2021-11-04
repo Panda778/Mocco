@@ -4,6 +4,7 @@ import { createTheme } from "@mui/material";
 
 export const defaultTheme = createTheme({
     palette: {
+        mode: 'light',
         primary: {
             main: '#3374ED',
             black: '#33333'
@@ -21,7 +22,8 @@ export const defaultTheme = createTheme({
 
 export const darkTheme = createTheme({
     palette: {
-       mode: 'dark',
+        mode: 'dark',
+        
         primary: {
             main: '#3374ED',
             black: '#33333'
@@ -35,4 +37,10 @@ export const darkTheme = createTheme({
         }
        
    }
+})
+
+export const backgroundColorAppBar = createTheme({
+    palette: {
+
+    }
 })

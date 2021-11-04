@@ -20,7 +20,7 @@ export default function UserPanelCard() {
                                     borderColor: 'primary.main',
                                     marginTop: 3
                                 }}>
-                                    <Button variant="contained" color={user.active? 'success': 'error'} sx={{ outline: 3, paddingLeft: 3 }}>Active</Button>
+                                    <Button variant="contained" color={user.active? 'success': 'error'} sx={{ outline: 3,borderRadius: 3, width: 125}}>Active</Button>
                                     <Box sx={{ display: "flex", alignItems: 'center' }}>
                                         <Avatar width={80} height={100} sx={{ marginRight: 4 }}
                                             src={'../img/Rectangle18.svg'} alt="" />
