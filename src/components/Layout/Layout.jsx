@@ -118,6 +118,13 @@ export default function Layout({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [action, setAction] = useState(false)
+
+  const links = ['Overview', 'Users','Courses', 'Course Providers', 'Statisctics', 'Ntification']
+  const handleActive = () => {
+    setAction(!action)
+
+  }
   const handleChange = () => {
     setIsDarkTheme(!isDarkTheme);
   };
@@ -132,7 +139,7 @@ export default function Layout({ children }) {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : defaultTheme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={!isDarkTheme ? { display: "flex" ,backgroundColor:'#f6fbfc'} : {display: 'flex', backgroundColor: '#333333'}}>
         <CssBaseline />
         {/*elevation - тень гетушт к
 
@@ -179,6 +186,7 @@ export default function Layout({ children }) {
                   <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
+            
                   placeholder="Search…"
                   inputProps={{ "aria-label": "search" }}
                 />
@@ -222,7 +230,7 @@ export default function Layout({ children }) {
           </DrawerHeader>
           <Divider />
           <List>
-            <Link to={'/'}>
+            <Link  to={'/'}>
             <ListItem button>
               <ListItemIcon>
                 <HomeOutlinedIcon />
@@ -231,7 +239,7 @@ export default function Layout({ children }) {
             </ListItem>
            </Link>
 
-            <Link to={'/user'}>
+            <Link  to={'/user'}>
             <ListItem button>
               <ListItemIcon>
                 <PersonOutlinedIcon />

@@ -29,7 +29,7 @@ export const darkTheme = createTheme({
             black: '#33333'
         },
         secondary: {
-            main: '#9E8C8C'
+            main: '#fff'
         },
         success: {
             main: '#5DF888',

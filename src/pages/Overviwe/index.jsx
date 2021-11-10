@@ -5,14 +5,19 @@ import { Paper } from "@mui/material";
 import statistic from "./statistic.json";
 import Box from "@mui/material/Box";
 import Statistic from "./Statistic/Statistic";
-import UserPanel from "./userPanel/UserPanel";
+import UserPanel from "./UserPanel/UserPanel";
+import CoursesPanel from "./CoursesPanel/CoursesPanel";
+import CoursesProviderPanel from "./CoursesProviderPanel/CoursesProviderPanel";
 console.log(statistic);
 
 const Overview = () => {
   return (
     <Layout>
-      <Box sx={{ fontFamily: "Montserrat" }}>
-        <Typography variant={"h6"} sx={{ fontWeight: "italic" }}>
+      <Box>
+        <Typography
+          variant={"h6"}
+          sx={{ fontFamily: "Montserrat", fontWeight: "bold" }}
+        >
           Admin System Management Overview
         </Typography>
       </Box>
@@ -24,6 +29,15 @@ const Overview = () => {
           <Statistic />
 
           <UserPanel />
+        </Box>
+        <Box sx={{ mt: 10 }}>
+          <CoursesPanel />
+        </Box>
+        <Box sx={{ mt: 10 }}>
+          <CoursesProviderPanel />
+        </Box>
+        <Box sx={{ mt: 10 }}>
+          <Statistic />
         </Box>
       </Box>
     </Layout>
