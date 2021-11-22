@@ -9,9 +9,10 @@ export default function CourseRating({ rating }) {
         direction="column"
         alignItems="center"
         justifyContent="space-around"
-        spacing={6}
+      spacing={6}
+      
       >
-        <Rating color='primary' name="half-rating" defaultValue={rating} precision={0.5} />
+        <Rating sx={{color:'#3374ED'}} name="half-rating" defaultValue={rating} precision={0.5} />
       </Stack>
    
   );

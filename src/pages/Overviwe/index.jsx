@@ -8,12 +8,17 @@ import Statistic from "./Statistic/Statistic";
 import UserPanel from "./UserPanel/UserPanel";
 import CoursesPanel from "./CoursesPanel/CoursesPanel";
 import CoursesProviderPanel from "./CoursesProviderPanel/CoursesProviderPanel";
+import PieChart from "../../components/Charts/Pie";
+import BarChart from "../../components/Charts/BarChart";
+import UserStatisticCard from "./UserStatiscticCard/UserStatisticCard";
+
 console.log(statistic);
 
 const Overview = () => {
   return (
-    <Layout>
+    <Layout >
       <Box>
+      
         <Typography
           variant={"h6"}
           sx={{ fontFamily: "Montserrat", fontWeight: "bold" }}
@@ -22,7 +27,7 @@ const Overview = () => {
         </Typography>
       </Box>
       <Box>
-        <Typography variant={"h5"} sx={{ mt: 10 }}>
+        <Typography fontFamily={'Montserrat'} variant={"h5"} sx={{ mt: 10 }}>
           Overview
         </Typography>
         <Box>
@@ -36,10 +41,14 @@ const Overview = () => {
         <Box sx={{ mt: 10 }}>
           <CoursesProviderPanel />
         </Box>
-        <Box sx={{ mt: 10 }}>
-          <Statistic />
+        <Box sx={{ mt: 10,display:'flex',justifyContent:'space-around' }}>
+          <BarChart />
+          <BarChart />
+          
         </Box>
+      
       </Box>
+     
     </Layout>
   );
 };

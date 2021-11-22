@@ -34,6 +34,9 @@ export const darkTheme = createTheme({
         success: {
             main: '#5DF888',
             dark: '#333333'
+        },
+        background: {
+            default: '#3374ED'
         }
        
    }

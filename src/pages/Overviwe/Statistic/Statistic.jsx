@@ -1,7 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import statistic from "../statistic.json";
-import StaticCart from "../StaticCart/StaticCart";
+import StaticCard from "../StaticCard/StaticCard";
+import PieChart from "../../../components/Charts/Pie";
 
 export default function Statistic() {
   return (
@@ -14,8 +15,10 @@ export default function Statistic() {
       }}
     >
       {statistic.map((item, index) => (
-        <StaticCart title={item.title} />
+        <StaticCard title={item.title} />
+        
       ))}
+     
     </Box>
   );
 }

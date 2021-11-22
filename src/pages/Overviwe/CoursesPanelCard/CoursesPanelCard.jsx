@@ -1,55 +1,33 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import courses from "../courses.json";
+import { Grid, Paper,Box,Button } from "@mui/material";
+import React from "react";
+import courses from '../courses.json'
 import CourseRating from "../CoursesRating/CoursesRating";
-import "./CoursesPanelCard.css";
 
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { Button } from "@mui/material";
-const rows = courses;
-
-export default function CoursesPanelCard() {
+const CoursesPanelCard = () => {
   return (
-    <Box component={Paper}>
-      <TableContainer>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Course Name</TableCell>
-              <TableCell align="center">Registered Students</TableCell>
-              <TableCell align="left">Course Provider</TableCell>
-              <TableCell align="center">Rating</TableCell>
-              <TableCell align="center">Action</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row,index) => (
-              <TableRow
-                key={row.index}
-                
-              >
-                <TableCell width="260" component="td" scope="row">
-                  {row.title}
-                </TableCell>
-                <TableCell align="center">{row.register}</TableCell>
-                <TableCell align="left">{row.CourseProvider}</TableCell>
-                <TableCell>
-                  <CourseRating rating={row.Rating} />
-                </TableCell>
-                <TableCell align="center">{row.action}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Box
+    <Paper  sx={{borderRadius:3}}>
+      <Box sx={{paddingTop:5,paddingLeft:5,paddingRight:5,paddingBottom:5, fontFamily: 'Montserrat'}}>
+      <Grid  container>
+      <Grid xs={4} paddingLeft={3} item>Course name</Grid>
+      <Grid xs={2} item>Registered Students</Grid>
+      <Grid xs={2} item>Course Provider</Grid>
+      <Grid xs={2} item paddingLeft={12}>Rating</Grid>
+      <Grid xs={2} item paddingLeft={10}>Action</Grid>
+        </Grid>
+        
+
+        {courses.map(function (item, index) {
+          return (
+            <Grid container sx={{  border: 1, borderColor: '#D1E1FE', marginTop: 3, borderRadius:12 , padding:1, paddingLeft:1, alignItems:'center'}}>
+              <Grid item xs={4} sx={{paddingLeft:2}}>{ item.title}</Grid>
+              <Grid item xs={2} paddingLeft={6}>{ item.register}</Grid>
+              <Grid  item xs={2}>{ item.CourseProvider}</Grid>
+              <Grid item xs={2} paddingLeft={10}><CourseRating rating={ item.Rating}/></Grid>
+              <Grid item xs={2} paddingLeft={13}>{ item.action}</Grid>
+            </Grid>
+          )
+        })}
+        <Box
         sx={{
           display: "flex",
           alignItems: "center",
@@ -62,6 +40,9 @@ export default function CoursesPanelCard() {
           View more
         </Button>
       </Box>
-    </Box>
-  );
+      </Box>
+   </Paper>
+  )
 }
+
+export default CoursesPanelCard

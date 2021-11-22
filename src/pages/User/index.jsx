@@ -85,7 +85,7 @@ const User = () => {
           Users
         </Typography>
       </Box>
-      <Box sx={{ border: 1 }}>
+      <Box mt={5} >
         <UsersTable />
       </Box>
     </Layout>
