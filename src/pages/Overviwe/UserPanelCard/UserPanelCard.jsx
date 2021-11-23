@@ -6,21 +6,21 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 const UserPanelCard = () => {
   return (
     <Paper sx={{borderRadius:3}}>
-      <Box sx={{paddingTop:5,paddingLeft:5,paddingRight:5,paddingBottom:5,textAlign:'center', fontFamily: 'Montserrat'}}>
-        <Grid sx={{textTransform:'capitalize'}} container justifyContent={'space-between'} >
+      <Box sx={{paddingTop:5,paddingLeft:5,paddingRight:5,paddingBottom:5, fontFamily: 'Montserrat'}}>
+        <Grid sx={{textTransform:'capitalize'}}  container >
           <Grid item xs={2}>
             Account status
           </Grid>
-          <Grid item xs={1} >
+          <Grid item xs={2} >
             user name
           </Grid>
-          <Grid item xs={3} paddingLeft={18}>
+          <Grid item xs={4} >
             email address
           </Grid>
-          <Grid item xs={3} paddingLeft={29}>
+          <Grid item xs={2}>
             country
           </Grid>
-          <Grid item xs={3} paddingLeft={15}>
+          <Grid item xs={2} >
             Action
           </Grid>
         </Grid>
@@ -28,7 +28,7 @@ const UserPanelCard = () => {
     
         {userData.map(function (item, index) {
           return (
-            <Grid  container sx={{  border: 1, borderColor: '#D1E1FE', marginTop: 3, borderRadius:12 , padding:2, paddingLeft:1}}>
+            <Grid     container sx={{flexGrow: 1,  border: 1, borderColor: '#D1E1FE', marginTop: 3, borderRadius:12 , padding:2}} >
               {" "}
               <Grid  item xs={2}>
               <Typography
@@ -61,10 +61,10 @@ const UserPanelCard = () => {
                     {item.active ? "active" : "Inactive"}
                   </Typography>
               </Grid>
-              <Grid item xs={2} alignItems={'center'} display={"flex"}><AccountCircleOutlinedIcon></AccountCircleOutlinedIcon>{item.name}</Grid>
+              <Grid item xs={2} display={'flex'}  ><AccountCircleOutlinedIcon></AccountCircleOutlinedIcon>{item.name}</Grid>
               <Grid item xs={4}>{item.email}</Grid>
-              <Grid item xs={2} paddingLeft={1}>{item.country}</Grid>
-              <Grid item xs={2} paddingLeft={8}>{ item.action}</Grid>
+              <Grid item xs={2} >{item.country}</Grid>
+              <Grid  item xs={2} >{ item.action}</Grid>
             </Grid>
           );
         })}

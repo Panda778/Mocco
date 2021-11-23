@@ -12,9 +12,10 @@ import PieChart from "../../components/Charts/Pie";
 import BarChart from "../../components/Charts/BarChart";
 import UserStatisticCard from "./UserStatiscticCard/UserStatisticCard";
 
-console.log(statistic);
+
 
 const Overview = () => {
+  console.log('wfwfew')
   return (
     <Layout >
       <Box>

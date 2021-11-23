@@ -5,11 +5,15 @@ import Typography from "@mui/material/Typography";
 import Layout from "../../components/Layout/Layout";
 import UsersTable from "./UsersTable/UsersTable";
 import SearchIcon from "@mui/icons-material/Search";
+import { useEffect } from "react";
 import { Button } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { alpha, InputBase } from "@mui/material";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-
+import axios from "axios";
+import { base_url } from "../../redux/store";
+import { fetchUserData, getUserData } from "../../redux/features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -49,8 +53,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
+console.log('fef')
 const User = () => {
+ 
+  const dispatch = useDispatch();
+
+  const status = useSelector(state => state.users.status);
+  const data = useSelector(state => state.users.data)
+  console.log('ssdsad')
+  console.log(data);
+  console.log(status);
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, []);
+
+
   return (
     <Layout>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -63,8 +80,18 @@ const User = () => {
           </Typography>
         </Box>
         <Box sx={{ display: "flex" }}>
-          <Button sx={{ borderRadius: 8, paddingY:1 , paddingX:3,textTransform:'capitalize'}} color="primary" variant="contained">
-            <PersonOutlinedIcon sx={{fontSize: 25,paddingRight:1}} /> Add User
+          <Button
+            sx={{
+              borderRadius: 8,
+              paddingY: 1,
+              paddingX: 3,
+              textTransform: "capitalize",
+            }}
+            color="primary"
+            variant="contained"
+          >
+            <PersonOutlinedIcon sx={{ fontSize: 25, paddingRight: 1 }} /> Add
+            User
           </Button>
           <Search sx={{ border: 1, borderRadius: 7 }}>
             <SearchIconWrapper>
@@ -85,7 +112,7 @@ const User = () => {
           Users
         </Typography>
       </Box>
-      <Box mt={5} >
+      <Box mt={5}>
         <UsersTable />
       </Box>
     </Layout>

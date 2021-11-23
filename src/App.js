@@ -1,29 +1,26 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Provider as ReduxProvider } from "react-redux";
 
-
-import './App.css';
-
+import "./App.css";
 
 import Overview from "./pages/Overviwe";
 import User from "./pages/User";
+import { store } from "./redux/store";
 
 function App() {
   return (
-      <Router>
+    <Router>
+      <ReduxProvider store={store}>
         <Switch>
-          <Route exact path={'/'}>
-            <Overview/>
+          <Route exact path={"/"}>
+            <Overview />
           </Route>
-          <Route exact path={'/user'}>
-            <User/>
+          <Route exact path={"/user"}>
+            <User />
           </Route>
         </Switch>
-      </Router>
+      </ReduxProvider>
+    </Router>
   );
 }
 

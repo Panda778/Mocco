@@ -35,7 +35,7 @@ export default function UsersTable() {
         {userData.map(function (item, index) {
           return (
             <Grid  container sx={{  border: 1, borderColor: '#D1E1FE', marginTop: 3, borderRadius:12 , padding:2, paddingLeft:1}}>
-             <Grid alignItems={'center'} item xs={1}><Checkbox/></Grid>
+             <Box item sx={{display:'inline-flex'}}><Checkbox/></Box>
               <Grid alignItems={'center'}  item xs={2}>
               <Typography
                     variant="button"
